@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# bin/detect <build-dir>
+
+# This buildpack is always available as long as it's installed
+exit 0
