@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
-# This buildpack is always available as long as it's installed
+# Print the name as it's used as a label in some places
+echo "Dead Man's Snitch"
 exit 0
