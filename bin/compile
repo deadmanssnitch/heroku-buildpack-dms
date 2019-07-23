@@ -15,7 +15,7 @@ mkdir -p $BUILD_DIR/.dms/bin
 # Dead Man's Snitch uses equinox.io for updates (and they do a great job) but
 # they don't provide a stable download url for the latest version. To get around
 # that we need to find the appropriate link on the page.
-curl -s https://dl.equinox.io/dms/field-agent/stable \
+curl --retry 3 -s https://dl.equinox.io/dms/field-agent/stable \
   | grep -e 'https.*field-agent-stable-linux-amd64.tgz' -o \
   | xargs curl -sL \
   | tar -C $BUILD_DIR/.dms/bin -xz
