@@ -12,12 +12,8 @@ BUILD_DIR=$1
 # Place in a hidden directory to ideally avoid collisions with anyone's code.
 mkdir -p $BUILD_DIR/.dms/bin
 
-# Dead Man's Snitch uses equinox.io for updates (and they do a great job) but
-# they don't provide a stable download url for the latest version. To get around
-# that we need to find the appropriate link on the page.
-curl --retry 3 -s https://dl.equinox.io/dms/field-agent/stable \
-  | grep -e 'https.*field-agent-stable-linux-amd64.tgz' -o \
-  | xargs curl -sL \
+# Download and extra the dms binary into .dms/bin
+curl --retry 3 -s https://releases.deadmanssnitch.com/field-agent/latest/dms_linux_amd64.tar.gz \
   | tar -C $BUILD_DIR/.dms/bin -xz
 
 mkdir -p $BUILD_DIR/.profile.d
