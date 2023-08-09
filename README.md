@@ -1,5 +1,5 @@
 # Heroku Buildpack for Dead Man's Snitch
-<img src="https://d1fqvroa87ty8i.cloudfront.net/assets/field-agent-logo-59110ceeef2d9621519040fbc0b44d4690ae73b402f536cd9603592baabecc60.svg" width="180px" align="right"></img>
+<img src="/doc/field-agent.svg" width="180px" align="right"></img>
 
 [Dead Man's Snitch](https://deadmanssnitch.com) is a monitoring service for
 Heroku Scheduler, cron jobs, and other scheduled tasks. We let you know when your
