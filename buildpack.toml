@@ -1,0 +1,13 @@
+api = "0.10"
+
+[buildpack]
+  id = "deadmanssnitch/field-agent"
+  name = "Dead Man's Snitch - Field Agent"
+  version = "1.0.0"
+  homepage = "https://github.com/deadmanssnitch/heroku-buildpack-dms"
+
+[[stacks]]
+  id = "*"
+
+[[targets]]
+  os = "linux"

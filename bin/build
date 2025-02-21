@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+echo "-----> Installing Dead Man's Snitch Field Agent"
+echo "       See https://deadmanssnitch.com/docs/heroku for details"
+echo ""
+echo "       Happy Snitch'n! 🎉"
+
+DMS_BIN_DIR="${CNB_LAYERS_DIR}/field-agent/bin"
+
+# Place in a hidden directory to ideally avoid collisions with anyone's code.
+mkdir -p "$DMS_BIN_DIR"
+
+# Download and extra the dms binary into .dms/bin
+curl --retry 3 -s "https://releases.deadmanssnitch.com/field-agent/latest/dms_linux_${CNB_TARGET_ARCH}.tar.gz" \
+  | tar -C "$DMS_BIN_DIR" -xz
+
+cat > "${CNB_LAYERS_DIR}/field-agent.toml" <<-EOL
+	[types]
+		build = true
+		cache = true
+		launch = true
+EOL
